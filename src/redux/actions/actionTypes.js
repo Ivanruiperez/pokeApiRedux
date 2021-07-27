@@ -1,6 +1,6 @@
 const actionTypes = {
-  LOAD_POKEMONS: 'LOAD_POKEMONS',
-  LOAD_POKEMONS_ERROR: 'LOAD_POKEMONS_ERROR',
+  LOAD_POKEMON_LIST: 'LOAD_POKEMON_LIST',
+  LOAD_ERROR: 'LOAD_ERROR',
 };
 
 export default actionTypes;

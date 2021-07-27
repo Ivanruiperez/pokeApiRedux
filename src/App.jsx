@@ -1,10 +1,9 @@
 import React from 'react';
+import PokemonList from './views/pokemonList.jsx/PokemonList';
 
 function App() {
   return (
-    <div>
-      pokeapi
-    </div>
+    <PokemonList />
   );
 }
 

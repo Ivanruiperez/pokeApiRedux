@@ -1,21 +1,21 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
-function loadPokemonList(pokemonList) {
+export function loadPokemonList(pokemonList) {
   return {
-    type: actionTypes.LOAD_POKEMONS,
+    type: actionTypes.LOAD_POKEMON_LIST,
     pokemonList,
   };
 }
 
-function loadError(error) {
+export function loadError(error) {
   return {
-    type: actionTypes.LOAD_POKEMONS_ERROR,
+    type: actionTypes.LOAD_ERROR,
     error,
   };
 }
 
-export default function requestPokemonList() {
+export function requestPokemonList() {
   return async (dispatch) => {
     const backEndpoint = 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0';
     try {
