@@ -5,32 +5,26 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { requestPokemonList } from '../../redux/actions/appActions';
 import './styles.css';
-import PokemonListItem from '../../components/PokemonListItem/pokemonListItem';
+import { PokemonListItem } from '../../components/PokemonListItem/PokemonListItem';
 
-function PokemonList({ pokemonList, dispatch }) {
+function PokemonList({ pokemonDetail, dispatch }) {
   useEffect(() => {
-    if (!pokemonList && !pokemonList?.length) {
-      dispatch(requestPokemonList());
-    }
-  }, [pokemonList]);
-
+    if (!pokemonDetail) { dispatch(requestPokemonList()); }
+  }, [pokemonDetail]);
   return (
-    <main>
-      <h1>Pokemon List</h1>
-      <section className="pokemon-list">
-        <ul className="col3">
-          {pokemonList && pokemonList.map((pokemon) => (
-            <PokemonListItem key={pokemon.name} pokeName={pokemon.name} />
-          ))}
-        </ul>
-      </section>
-    </main>
+    <section className="pokemon-list">
+      <ul className="col3">
+        {pokemonDetail && pokemonDetail.map((pokemon) => (
+          <PokemonListItem key={pokemon.name} pokemon={pokemon} />
+        ))}
+      </ul>
+    </section>
   );
 }
 
 function mapStateToProps({ pokeReducer }) {
   return {
-    pokemonList: pokeReducer.pokemonList,
+    pokemonDetail: pokeReducer.pokemonDetail,
   };
 }
 

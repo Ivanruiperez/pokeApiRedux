@@ -1,9 +1,12 @@
 import React from 'react';
 import PokemonList from './views/pokemonList.jsx/PokemonList';
+import './App.css';
 
 function App() {
   return (
-    <PokemonList />
+    <main className="mainContainer">
+      <PokemonList />
+    </main>
   );
 }
 
