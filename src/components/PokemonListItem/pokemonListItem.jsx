@@ -4,16 +4,17 @@
 import React, { useState } from 'react';
 import closePokeball from '../../assets/images/closePokeball.png';
 import openPokeball from '../../assets/images/openPokeball.png';
-import './styles.css';
+import './styles.scss';
 
 export function PokemonListItem({ pokemon }) {
   const [statePokeball, setStatePokeball] = useState(closePokeball);
   const [sprite, setSprite] = useState(false);
-
+  const type = pokemon.types[0].type.name;
+  const pokeSprite = pokemon.sprites.front_default;
   return (
     pokemon && (
       <li
-        className="boxListItem"
+        className={`boxListItem ${type}`}
         onMouseOver={() => {
           setSprite(true);
           setStatePokeball(openPokeball);
@@ -24,8 +25,6 @@ export function PokemonListItem({ pokemon }) {
         }}
       >
         <div className="listItem">
-          {sprite ? <img src={pokemon.sprites.front_default} alt="sprite" />
-            : null}
           <img
             src={statePokeball}
             height="20px"
@@ -33,10 +32,9 @@ export function PokemonListItem({ pokemon }) {
           />
           {!sprite ? (
             <p>
-              {' | '}
               {pokemon.name}
             </p>
-          ) : null}
+          ) : <img src={pokeSprite} alt="sprite" />}
 
         </div>
       </li>

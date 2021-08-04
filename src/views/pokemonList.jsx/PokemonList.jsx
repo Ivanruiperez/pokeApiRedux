@@ -4,7 +4,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { requestPokemonList } from '../../redux/actions/appActions';
-import './styles.css';
+import './styles.scss';
 import { PokemonListItem } from '../../components/PokemonListItem/PokemonListItem';
 
 function PokemonList({ pokemonDetail, dispatch }) {
