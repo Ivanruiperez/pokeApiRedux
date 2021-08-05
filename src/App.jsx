@@ -3,7 +3,6 @@ import {
   BrowserRouter, Route, Switch,
 } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Home from './views/Home/Home';
 import PokemonList from './views/PokemonList.jsx/PokemonList';
 import Notfound from './components/Notfound/Notfound';
 import './App.scss';
@@ -14,8 +13,7 @@ function App() {
       <main className="mainContainer">
         <Header />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/list" component={PokemonList} />
+          <Route path="/" component={PokemonList} />
           <Route component={Notfound} />
         </Switch>
       </main>

@@ -4,9 +4,9 @@
 import React, { useState } from 'react';
 import closePokeball from '../../assets/images/closePokeball.png';
 import openPokeball from '../../assets/images/openPokeball.png';
-import './styles.scss';
+import './PokemonListItem.scss';
 
-export function PokemonListItem({ pokemon }) {
+function PokemonListItem({ pokemon }) {
   const [statePokeball, setStatePokeball] = useState(closePokeball);
   const [sprite, setSprite] = useState(false);
   const type = pokemon.types[0].type.name;

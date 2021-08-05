@@ -1,0 +1,13 @@
+
+.pokemon-list {
+    width: 100%;
+    padding-bottom: 25px;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pokemon-list-box{
+    width: 95%;
+}

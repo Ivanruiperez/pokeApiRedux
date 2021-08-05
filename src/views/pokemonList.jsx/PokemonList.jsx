@@ -1,24 +1,27 @@
 /* eslint-disable no-self-compare */
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { requestPokemonList } from '../../redux/actions/appActions';
-import './styles.scss';
-import { PokemonListItem } from '../../components/PokemonListItem/PokemonListItem';
+import './PokemonList.scss';
+import PokemonListItem from '../../components/PokemonListItem/PokemonListItem';
+import Launch from '../../components/Launch/Launch';
 
-function PokemonList({ pokemonDetail, dispatch }) {
-  useEffect(() => {
-    if (!pokemonDetail) { dispatch(requestPokemonList()); }
-  }, [pokemonDetail]);
+function PokemonList({ pokemonDetail }) {
   return (
-    <section className="pokemon-list">
-      <ul className="col3">
-        {pokemonDetail && pokemonDetail.map((pokemon) => (
-          <PokemonListItem key={pokemon.name} pokemon={pokemon} />
-        ))}
-      </ul>
-    </section>
+    (!pokemonDetail)
+      ? (
+        <Launch />
+      ) : (
+        <section className="pokemon-list-box">
+          <ul className="pokemon-list">
+            {pokemonDetail && pokemonDetail.map((pokemon) => (
+              <PokemonListItem key={pokemon.name} pokemon={pokemon} />
+            ))}
+          </ul>
+        </section>
+      )
+
   );
 }
 
