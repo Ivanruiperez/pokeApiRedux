@@ -1,0 +1,117 @@
+*{
+    font-family: 'CustomFont';
+}
+.boxListItem {
+    display: flex;
+    background-color: #fdfdfd;
+    padding: 0px 10px;
+    margin: 5px;
+    width: 145px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 9px 7px 22px 4px rgba(0,0,0,0.19);
+    border-radius: 5px;
+}
+.boxListItem:hover {
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -ms-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    transform: scale(1.25);
+}
+.listItem {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-transform: capitalize;
+    p {
+        margin-left: 15px;
+    }
+    img {
+        filter: drop-shadow(5px 5px 5px #222);
+    }
+}
+.listItem:hover{
+    justify-content:center
+}
+.fire:hover {
+    background-color: #fd7d23;
+}
+.flying:hover {
+    background: linear-gradient(
+      to top,
+      #bdb9b8 0%,
+      #bdb9b8 50%,
+      #3dc6ef 50%,
+      #3dc6ef 100%
+    );
+}
+.normal:hover {
+    background-color: #ffffff;
+}
+.fighting:hover {
+    background-color: #d56723;
+}
+.poison:hover {
+    background-color: #b97fc9;
+    color: white;
+}
+.ground:hover {
+    background: linear-gradient(
+      to top,
+      #aa9841 0%,
+      #aa9841 50%,
+      #f7dd3f 50%,
+      #f7dd3f 100%
+    );
+}
+.rock:hover {
+    background-color: #a28c20;
+    color: white;
+}
+.bug:hover {
+    background-color: #729f3f;
+    color: white;
+}
+.ghost:hover {
+    background-color: #7b62a3;
+    color: white;
+}
+.steel:hover {
+    background-color: #9eb7b8;
+}
+.water:hover {
+    background-color: #4592c4;
+    color: white;
+}
+.grass:hover {
+    background-color: #9bcb50;
+}
+.electric:hover {
+    background-color: #eed434;
+}
+.psychic:hover{
+    background-color: #f365b9;
+    color: white;
+}
+.ice:hover {
+    background-color: #51c3e7;
+}
+.dragon:hover {
+    background: linear-gradient(
+      to top,
+      #f16d56 0%,
+      #f16d56 50%,
+      #53a4cf 50%,
+      #53a4cf 100%
+    );
+    color: white;
+}
+.dark:hover {
+    background-color: #707070;
+    color: white;
+}
+.fairy:hover {
+    background-color: #fdb8e9;
+}

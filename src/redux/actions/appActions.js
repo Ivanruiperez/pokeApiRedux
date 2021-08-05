@@ -2,13 +2,6 @@
 import axios from 'axios';
 import actionTypes from './actionTypes';
 
-export function loadPokemonList(pokemonList) {
-  return {
-    type: actionTypes.LOAD_POKEMON_LIST,
-    pokemonList,
-  };
-}
-
 export function loadPokemonDetail(pokemonDetail) {
   return {
     type: actionTypes.LOAD_POKEMON_DETAIL,
@@ -36,14 +29,12 @@ export function requestPokemonDetail(pokemonDetails) {
   };
 }
 
-export function requestPokemonList() {
+export function requestPokemonList(limit, offset) {
   return async (dispatch) => {
-    const backEndpoint = 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0';
+    const backEndpoint = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
     try {
       const rawData = await axios.get(backEndpoint);
-
       dispatch(requestPokemonDetail(rawData.data.results));
-      dispatch(loadPokemonList(rawData.data.results));
     } catch (error) {
       dispatch(loadError(error));
     }
