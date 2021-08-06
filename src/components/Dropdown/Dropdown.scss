@@ -1,0 +1,105 @@
+.select-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .select{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        border: 1px solid #616161;
+        border-radius:0.2em;
+        width: 200px;
+        height: 30px;
+        font-size: 15px;
+        cursor: pointer;
+        .select-header{
+            padding-left: 10px;
+            text-transform: capitalize;
+        }
+        .dropDownActivate{
+            display: flex;
+            justify-content: center;
+            width: 30px;
+            height: 100%;
+            img{
+                width: 90%;
+                height: 90%;
+                transform: rotate(180deg);
+            }
+        }
+        .dropDownDisabled{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 100%;
+            cursor: pointer;
+            img{
+                width: 90%;
+                height: 90%;
+            }
+        }
+    }
+    .select-dropdown{
+        position: absolute;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #616161;
+        border-top: none;
+        transform: translate(0px,118px);
+        width: 200px;
+
+        .select-dropdown-item{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: white;
+            width: 100%;
+            height: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            
+            p{
+                padding-left: 10px;
+            }
+            .initials{
+                display: none;
+            }          
+        }
+         
+        .select-dropdown-item:hover{
+            background-color: rgb(84, 181, 99);
+            color: white;
+            .initials{
+                display: flex;
+                margin-left: 5px;
+                justify-content: flex-end;
+                height: 100%;
+                width: 50%;
+                transform: translate(0px, -3px);
+                img {
+                    display: flex;
+                    align-items: center;
+                    height: 100%;;
+                    width: 35%;
+                }
+            } 
+        }
+        
+    }
+}
+.sprites{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    transform: translate(-75px, 50px);
+    z-index: 1;
+    img{
+        width: 50px;
+    }
+}

@@ -1,10 +1,8 @@
-/* eslint-disable no-self-compare */
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import './PokemonList.scss';
-import PokemonListItem from '../../components/PokemonListItem/PokemonListItem';
+import PokemonListItem from '../../components/PokemonListItem/pokemonListItem';
 import Launch from '../../components/Launch/Launch';
 
 function PokemonList({ pokemonDetail }) {

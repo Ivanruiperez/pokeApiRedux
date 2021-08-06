@@ -2,13 +2,13 @@
 import React from 'react';
 import './Header.scss';
 import toggle from '../../assets/images/large-notch-darkgray.png';
-import Select from '../Select/Select';
+import Dropdown from '../Dropdown/Dropdown';
 
 export default function Header() {
   return (
     <>
       <section className="header-container">
-        <Select />
+        <Dropdown />
       </section>
       <div className="toogle" />
       <div className="sub-toogle">
