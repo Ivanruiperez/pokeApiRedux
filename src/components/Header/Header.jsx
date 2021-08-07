@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import './Header.scss';
 import toggle from '../../assets/images/large-notch-darkgray.png';

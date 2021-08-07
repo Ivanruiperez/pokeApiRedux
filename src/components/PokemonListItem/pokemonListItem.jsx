@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React, { useState } from 'react';
 import closePokeball from '../../assets/images/closePokeball.png';
 import openPokeball from '../../assets/images/openPokeball.png';
@@ -19,7 +16,15 @@ function PokemonListItem({ pokemon }) {
           setSprite(true);
           setStatePokeball(openPokeball);
         }}
+        onFocus={() => {
+          setSprite(true);
+          setStatePokeball(openPokeball);
+        }}
         onMouseOut={() => {
+          setStatePokeball(closePokeball);
+          setSprite(false);
+        }}
+        onBlur={() => {
           setStatePokeball(closePokeball);
           setSprite(false);
         }}

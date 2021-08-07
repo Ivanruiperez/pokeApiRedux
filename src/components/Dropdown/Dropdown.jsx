@@ -1,12 +1,8 @@
-/* eslint-disable no-console */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { requestPokemonList } from '../../redux/actions/appActions';
 import {
-  options, dropDownActivate, dropDownDisabled, initials,
+  options, dropDownActivate, dropDownDisabled,
 } from '../../assets/constants/index';
 import Arrow from '../../assets/images/arrow.svg';
 import './Dropdown.scss';
@@ -63,7 +59,13 @@ export default function Dropdown() {
   return (
     <>
       <div className="select-box">
-        <div className="select" onClick={() => setIsOpen(!isOpen)}>
+        <div
+          className="select"
+          onClick={() => setIsOpen(!isOpen)}
+          role="menuitem"
+          tabIndex="0"
+          aria-hidden="true"
+        >
           <p className="select-header">
             {genSelected || 'Choose generation'}
           </p>
@@ -83,6 +85,9 @@ export default function Dropdown() {
                   setIsOpen(false);
                 }}
                 key={item.value}
+                role="menuitem"
+                tabIndex="0"
+                aria-hidden="true"
               >
                 <p>{item.label}</p>
                 <div className="initials">
