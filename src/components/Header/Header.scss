@@ -6,6 +6,36 @@
     justify-content: center;
     align-items: center;
 }
+.header-container-box{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    section{
+        display: flex;
+        padding-left: 30%;
+    }
+}
+.header-container-text{
+    position: relative;
+    margin-left: 20px;
+    margin-right: 10px;
+    background-color: rgb(84, 181, 99);
+    width: 200px;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+
+}
+.header-container-text:before{
+    border: 15px solid rgb(84, 181, 99);
+    content: '';
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    position: absolute;
+    right: 230px;
+    transform: rotate(90deg) translate(7px, 0px);
+}
 .toogle{
     height: 40px;
     width: 100%;

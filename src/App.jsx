@@ -2,18 +2,18 @@ import React from 'react';
 import {
   BrowserRouter, Route, Switch,
 } from 'react-router-dom';
-import Header from './components/Header/Header';
+import Launch from './views/Launch/Launch';
 import PokemonList from './views/PokemonList.jsx/PokemonList';
-import Notfound from './components/Notfound/Notfound';
+import Notfound from './views/Notfound/Notfound';
 import './App.scss';
 
 function App() {
   return (
     <BrowserRouter>
       <main className="mainContainer">
-        <Header />
         <Switch>
-          <Route path="/" component={PokemonList} />
+          <Route path="/" exact component={Launch} />
+          <Route path="/list" exact component={PokemonList} />
           <Route component={Notfound} />
         </Switch>
       </main>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { requestPokemonList } from '../../redux/actions/appActions';
+import { requestPokemonList, requestClearStore } from '../../redux/actions/appActions';
 import {
-  options, dropDownActivate, dropDownDisabled,
+  options, dropDownActivate, dropDownDisabled, chooseGen,
 } from '../../assets/constants/index';
-import Arrow from '../../assets/images/arrow.svg';
+import Arrow from '../../assets/images/arrow.png';
 import './Dropdown.scss';
 
 export default function Dropdown() {
@@ -13,6 +13,11 @@ export default function Dropdown() {
   const [limit, setLimit] = useState(null);
   const [offset, setOffset] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  function handleDropdownClick(item) {
+    dispatch(requestClearStore());
+    setGenSelected(item.value);
+    setIsOpen(false);
+  }
 
   useEffect(() => {
     switch (genSelected) {
@@ -67,7 +72,7 @@ export default function Dropdown() {
           aria-hidden="true"
         >
           <p className="select-header">
-            {genSelected || 'Choose generation'}
+            {genSelected || chooseGen}
           </p>
           <div
             className={isOpen ? dropDownActivate : dropDownDisabled}
@@ -80,10 +85,7 @@ export default function Dropdown() {
             {options.map((item) => (
               <div
                 className="select-dropdown-item"
-                onClick={() => {
-                  setGenSelected(item.value);
-                  setIsOpen(false);
-                }}
+                onClick={() => handleDropdownClick(item)}
                 key={item.value}
                 role="menuitem"
                 tabIndex="0"
@@ -102,19 +104,19 @@ export default function Dropdown() {
         ) : null}
         <div>
           {genSelected
-            && (
+            ? (
               options.map((item) => (
                 item.value === genSelected
                   && (
-                  <section className="sprites" key={item.value}>
-                    <img src={item.initials.fist} alt={item.initials.fist} />
+                  <div className="sprites" key={item.value}>
+                    <img src={item.initials.first} alt={item.initials.fist} />
                     <img src={item.initials.second} alt={item.initials.second} />
                     <img src={item.initials.third} alt={item.initials.third} />
-                  </section>
+                  </div>
                   )
               ))
 
-            )}
+            ) : <p className="noSprites">Full Pokedex</p>}
 
         </div>
       </div>

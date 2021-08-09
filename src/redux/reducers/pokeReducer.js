@@ -3,6 +3,9 @@ import actionTypes from '../actions/actionTypes';
 export default function pokeReducer(state = {}, action) {
   let updatedState;
   switch (action.type) {
+    case actionTypes.CLEAR:
+      updatedState = { ...state, pokemonDetail: action.clear };
+      break;
     case actionTypes.LOAD_POKEMON_DETAIL:
       updatedState = { ...state, pokemonDetail: action.pokemonDetail };
       break;

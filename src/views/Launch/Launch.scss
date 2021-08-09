@@ -1,11 +1,11 @@
 .oak{
+    margin-top: 10%;
     font-family: 'Press Start 2P';
     display: flex;
-    justify-content: center;
     section {
         background-color: white;
         min-height: 4em;
-        height: 25%;
+        max-height: 20em;
         width: 15em;
         padding: 20px;
         border-radius: 20px;
@@ -21,6 +21,7 @@
         border-right-color: transparent;
         position: absolute;
         right: -45px;
+        top: 40px;
         transform: rotate(270deg);
     }
 
@@ -29,5 +30,20 @@
         height: 70vh;
         filter: drop-shadow(5px 5px 5px #222);
 
+    }
+    .pokedexButton{
+        position: absolute;
+        cursor: pointer;
+        width: 150px;
+        height: 40px;
+        background-color: rgb(84, 181, 99);
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: 5px;
+        filter: drop-shadow(5px 5px 5px #222);
+        transform: translate(-430px, 300px);
     }
 }

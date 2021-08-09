@@ -7,7 +7,12 @@ export function loadPokemonDetail(pokemonDetail) {
     pokemonDetail,
   };
 }
-
+export function clearStore(clear) {
+  return {
+    type: actionTypes.CLEAR,
+    clear,
+  };
+}
 export function loadError(error) {
   return {
     type: actionTypes.LOAD_ERROR,
@@ -34,6 +39,15 @@ export function requestPokemonList(limit, offset) {
     try {
       const rawData = await axios.get(backEndpoint);
       dispatch(requestPokemonDetail(rawData.data.results));
+    } catch (error) {
+      dispatch(loadError(error));
+    }
+  };
+}
+export function requestClearStore() {
+  return (dispatch) => {
+    try {
+      dispatch(clearStore());
     } catch (error) {
       dispatch(loadError(error));
     }
