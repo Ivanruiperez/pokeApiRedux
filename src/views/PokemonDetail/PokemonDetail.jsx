@@ -24,7 +24,6 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
       dispatch(loadPokemonMove);
     }
   }, [pokeDetail]);
-  if (pokemonMove) console.log(pokemonMove, pokeDetail);
   return (
 
     pokeDetail
