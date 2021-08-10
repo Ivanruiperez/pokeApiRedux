@@ -1,6 +1,10 @@
 *{
     font-family: 'CustomFont';
 }
+a{
+    text-decoration: none;
+    color: #313131;
+}
 .boxListItem {
     display: flex;
     background-color: #fdfdfd;

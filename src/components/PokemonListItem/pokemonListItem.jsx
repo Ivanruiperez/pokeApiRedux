@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import closePokeball from '../../assets/images/closePokeball.png';
 import openPokeball from '../../assets/images/openPokeball.png';
 import './PokemonListItem.scss';
@@ -10,39 +11,41 @@ function PokemonListItem({ pokemon }) {
   const pokeSprite = pokemon.sprites.front_default;
   return (
     pokemon && (
-      <li
-        className={`boxListItem ${type}`}
-        onMouseOver={() => {
-          setSprite(true);
-          setStatePokeball(openPokeball);
-        }}
-        onFocus={() => {
-          setSprite(true);
-          setStatePokeball(openPokeball);
-        }}
-        onMouseOut={() => {
-          setStatePokeball(closePokeball);
-          setSprite(false);
-        }}
-        onBlur={() => {
-          setStatePokeball(closePokeball);
-          setSprite(false);
-        }}
-      >
-        <div className="listItem">
-          <img
-            src={statePokeball}
-            height="20px"
-            alt="pokeball"
-          />
-          {!sprite ? (
-            <p>
-              {pokemon.name}
-            </p>
-          ) : <img src={pokeSprite} alt="sprite" />}
+      <Link to={`/detail/${pokemon.name}`} key={pokemon.name}>
+        <li
+          className={`boxListItem ${type}`}
+          onMouseOver={() => {
+            setSprite(true);
+            setStatePokeball(openPokeball);
+          }}
+          onFocus={() => {
+            setSprite(true);
+            setStatePokeball(openPokeball);
+          }}
+          onMouseOut={() => {
+            setStatePokeball(closePokeball);
+            setSprite(false);
+          }}
+          onBlur={() => {
+            setStatePokeball(closePokeball);
+            setSprite(false);
+          }}
+        >
+          <div className="listItem">
+            <img
+              src={statePokeball}
+              height="20px"
+              alt="pokeball"
+            />
+            {!sprite ? (
+              <p>
+                {pokemon.name}
+              </p>
+            ) : <img src={pokeSprite} alt="sprite" />}
 
-        </div>
-      </li>
+          </div>
+        </li>
+      </Link>
     )
   );
 }

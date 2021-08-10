@@ -7,6 +7,12 @@ export function loadPokemonDetail(pokemonDetail) {
     pokemonDetail,
   };
 }
+export function loadPokemonMove(pokemonMove) {
+  return {
+    type: actionTypes.LOAD_POKEMON_MOVE,
+    pokemonMove,
+  };
+}
 export function clearStore(clear) {
   return {
     type: actionTypes.CLEAR,
@@ -28,6 +34,19 @@ export function requestPokemonDetail(pokemonDetails) {
       .then((data) => {
         const newArr = data.map((detail) => detail.data);
         dispatch(loadPokemonDetail(newArr));
+      })
+      .catch((error) => dispatch(loadError(error)));
+  };
+}
+export function requestPokemonMoves(pokemonMoves) {
+  return (dispatch) => {
+    Promise.all(pokemonMoves.map(async (move) => {
+      const allMoves = await axios.get(move.move.url);
+      return allMoves;
+    }))
+      .then((data) => {
+        const newArr = data.map((move) => move.data);
+        dispatch(loadPokemonMove(newArr));
       })
       .catch((error) => dispatch(loadError(error)));
   };
