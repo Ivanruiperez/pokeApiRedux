@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 import React, { useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -10,6 +11,8 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [pokeDetail, setPokeDetail] = useState(null);
+  const [pokeSprite, setPokeSprite] = useState(null);
+  const [pokeStats, setPokeStats] = useState(null);
 
   useEffect(() => {
     if (pokemonDetail) {
@@ -19,6 +22,8 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
   useEffect(() => {
     if (pokeDetail) {
       dispatch(requestPokemonMoves(pokeDetail[0].moves));
+      setPokeSprite(pokeDetail[0]?.sprites.other['official-artwork'].front_default);
+      setPokeStats(pokeDetail[0].stats);
     }
   }, [pokeDetail]);
   useEffect(() => {
@@ -38,11 +43,13 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
         <main className="poke-detail-section">
           <h1>{pokeDetail[0].name}</h1>
           <section className="poke-details">
-            <div className="sprite">
-              <img
-                src={pokeDetail[0]?.sprites.other.dream_world.front_default}
-                alt={pokeDetail[0]?.sprites.other.dream_world.front_default}
-              />
+            <section className="poke-details_box">
+              <div className="sprite">
+                <img
+                  src={pokeSprite}
+                  alt="pokeDetail"
+                />
+              </div>
               <div className="poke-types">
                 {pokeDetail[0].types.map((type) => (
                   <span>
@@ -52,7 +59,23 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
                   </span>
                 ))}
               </div>
-            </div>
+            </section>
+            <section className="poke-details_box">
+              <div className="poke-stats-container">
+                <h5>Base Stats</h5>
+                {pokeStats && (
+                  pokeStats.map((stat) => (
+                    <span className="poke-stat-box">
+                      <p>{stat.stat.name}</p>
+                      <div className="poke-stat">
+                        <figure className="poke-stat-bar" style={{ width: `${stat.base_stat}px` }}>
+                        </figure>
+                      </div>
+                    </span>
+                  ))
+                )}
+              </div>
+            </section>
           </section>
         </main>
       )
