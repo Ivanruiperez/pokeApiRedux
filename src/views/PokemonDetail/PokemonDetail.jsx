@@ -2,13 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { loadPokemonMove, requestPokemonMoves, requestPokemonList } from '../../redux/actions/appActions';
 import Loading from '../../components/Loading/Loading';
-import { loadPokemonMove, requestPokemonMoves } from '../../redux/actions/appActions';
+import { firstPokemonIndex, lastPokemonIndex } from '../../assets/constants/index';
 
 export function PokemonDetail({ pokemonDetail, pokemonMove }) {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [pokeDetail, setPokeDetail] = useState(null);
+
   useEffect(() => {
     if (pokemonDetail) {
       setPokeDetail(pokemonDetail?.filter((pokeName) => pokeName.name === id));
@@ -24,6 +26,12 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
       dispatch(loadPokemonMove);
     }
   }, [pokeDetail]);
+  useEffect(() => {
+    if (!pokemonDetail) {
+      dispatch(requestPokemonList(lastPokemonIndex, firstPokemonIndex));
+    }
+  }, []);
+  console.log(pokeDetail);
   return (
 
     pokeDetail

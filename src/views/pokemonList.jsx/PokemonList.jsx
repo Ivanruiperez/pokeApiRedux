@@ -1,12 +1,19 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { clearStore } from '../../redux/actions/appActions';
+import { connect, useDispatch } from 'react-redux';
+import { clearStore, requestPokemonList } from '../../redux/actions/appActions';
 import './PokemonList.scss';
 import Header from '../../components/Header/Header';
 import PokemonListItem from '../../components/PokemonListItem/pokemonListItem';
 import Loading from '../../components/Loading/Loading';
+import { firstPokemonIndex, lastPokemonIndex } from '../../assets/constants/index';
 
 function PokemonList({ pokemonDetail }) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (!pokemonDetail) {
+      dispatch(requestPokemonList(lastPokemonIndex, firstPokemonIndex));
+    }
+  }, []);
   useEffect(() => {
     clearStore();
   }, [pokemonDetail]);
