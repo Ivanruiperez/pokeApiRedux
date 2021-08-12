@@ -1,4 +1,3 @@
-/* eslint-disable react/self-closing-comp */
 import React, { useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -10,20 +9,26 @@ import './PokemonDetail.scss';
 export function PokemonDetail({ pokemonDetail, pokemonMove }) {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const [pokeDetailArr, setPokeDetailArr] = useState(null);
   const [pokeDetail, setPokeDetail] = useState(null);
   const [pokeSprite, setPokeSprite] = useState(null);
   const [pokeStats, setPokeStats] = useState(null);
 
   useEffect(() => {
     if (pokemonDetail) {
-      setPokeDetail(pokemonDetail?.filter((pokeName) => pokeName.name === id));
+      setPokeDetailArr(pokemonDetail?.filter((pokeName) => pokeName.name === id));
     }
   }, [pokemonDetail]);
   useEffect(() => {
+    if (pokeDetailArr) {
+      setPokeDetail(pokeDetailArr[0]);
+    }
+  }, [pokeDetailArr]);
+  useEffect(() => {
     if (pokeDetail) {
-      dispatch(requestPokemonMoves(pokeDetail[0].moves));
-      setPokeSprite(pokeDetail[0]?.sprites.other['official-artwork'].front_default);
-      setPokeStats(pokeDetail[0].stats);
+      dispatch(requestPokemonMoves(pokeDetail.moves));
+      setPokeSprite(pokeDetail.sprites.other['official-artwork'].front_default);
+      setPokeStats(pokeDetail.stats);
     }
   }, [pokeDetail]);
   useEffect(() => {
@@ -41,7 +46,7 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
     pokeDetail
       ? (
         <main className="poke-detail-section">
-          <h1>{pokeDetail[0].name}</h1>
+          <h1>{pokeDetail.name}</h1>
           <section className="poke-details">
             <section className="poke-details_box">
               <div className="sprite">
@@ -51,7 +56,7 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
                 />
               </div>
               <div className="poke-types">
-                {pokeDetail[0].types.map((type) => (
+                {pokeDetail.types.map((type) => (
                   <span>
                     <p className={type.type.name}>
                       {type.type.name}
