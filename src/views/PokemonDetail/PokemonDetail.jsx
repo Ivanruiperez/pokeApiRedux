@@ -67,10 +67,11 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
                   pokeStats.map((stat) => (
                     <span className="poke-stat-box">
                       <p>{stat.stat.name}</p>
-                      <div className="poke-stat">
-                        <figure className="poke-stat-bar" style={{ width: `${stat.base_stat}px` }}>
-                        </figure>
-                      </div>
+                      <figure className="poke-stat">
+                        <span className="poke-stat-bar" style={{ width: `${stat.base_stat}px` }}>
+                          <div className="poke-stat-bar-animation" />
+                        </span>
+                      </figure>
                     </span>
                   ))
                 )}

@@ -52,16 +52,18 @@
     height: 25px;
     .poke-stat-bar{
         border-radius: 2px;
-        background-color: #30a7d7;
-        animation: progress 2s ease-out;
-        @keyframes progress {
-            0% {
-                width: 0;
-            }
-            100% {
-                width: 100%;
-            }
-        }   
+        .poke-stat-bar-animation{
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: #30a7d7;
+            animation: progress 2s ease-out;
+            @keyframes progress {
+                0% {width: 0;}
+                100% {width: 100%;}
+            } 
+        }
+          
     } 
 }
 .sprite {
