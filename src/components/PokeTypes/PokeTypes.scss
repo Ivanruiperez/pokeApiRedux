@@ -1,18 +1,4 @@
-.sprite {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 280px;
-    border-radius: 5px;
-    box-shadow: 9px 7px 22px 4px rgba(0,0,0,0.19);
-    img{
-        background-color: #f2f2f2;
-        border-radius: 5px;
-        padding: 15px;
-        height: 250px;
-        max-width: 300px;
-    }
-}
+
 .poke-types{
     margin-top: 15px;
     display: flex;

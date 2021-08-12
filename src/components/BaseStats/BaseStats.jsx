@@ -3,7 +3,7 @@ import './BaseStats.scss';
 
 export default function BaseStats({ pokeStats }) {
   return (
-    <>
+    <div className="poke-stats-container">
       <h5>Base Stats</h5>
       {pokeStats && (
         pokeStats.map((stat) => (
@@ -17,6 +17,6 @@ export default function BaseStats({ pokeStats }) {
           </span>
         ))
       )}
-    </>
+    </div>
   );
 }

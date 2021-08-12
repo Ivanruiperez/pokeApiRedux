@@ -14,10 +14,11 @@ import Loading from '../../components/Loading/Loading';
 import PokemonAbilities from '../../components/PokemonAbilities/PokemonAbilities';
 import BaseStats from '../../components/BaseStats/BaseStats';
 import PokeTypes from '../../components/PokeTypes/PokeTypes';
+import PokeMoves from '../../components/PokeMoves/PokeMoves';
 import { firstPokemonIndex, lastPokemonIndex } from '../../assets/constants/index';
 import './PokemonDetail.scss';
 
-export function PokemonDetail({ pokemonDetail, pokemonMove, pokemonAbility }) {
+export function PokemonDetail({ pokemonDetail, pokemonMoves, pokemonAbility }) {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [pokeDetailArr, setPokeDetailArr] = useState(null);
@@ -44,7 +45,7 @@ export function PokemonDetail({ pokemonDetail, pokemonMove, pokemonAbility }) {
     }
   }, [pokeDetail]);
   useEffect(() => {
-    if (!pokemonMove) {
+    if (!pokemonMoves) {
       dispatch(loadPokemonMove);
     }
   }, [pokeDetail]);
@@ -72,14 +73,14 @@ export function PokemonDetail({ pokemonDetail, pokemonMove, pokemonAbility }) {
                   alt="pokeDetail"
                 />
               </div>
-              {pokeDetail.types.map((type) => (
-                <PokeTypes type={type} key={type.type.name} />
-              ))}
+              <div className="poke-types-box">
+                {pokeDetail.types.map((type) => (
+                  <PokeTypes type={type} key={type.type.name} />
+                ))}
+              </div>
             </section>
             <section className="poke-details_box">
-              <div className="poke-stats-container">
-                <BaseStats pokeStats={pokeStats} key="pokeStats" />
-              </div>
+              <BaseStats pokeStats={pokeStats} key="pokeStats" />
               <div className="poke-ability-box">
                 {pokemonAbility && (
                   pokemonAbility.map((ability) => (
@@ -88,6 +89,16 @@ export function PokemonDetail({ pokemonDetail, pokemonMove, pokemonAbility }) {
                 )}
               </div>
             </section>
+
+          </section>
+          <section className="poke-moves-box">
+            <h2>Moves can learn</h2>
+            <ul className="poke-move-list">
+              {pokemonMoves && (pokemonMoves.map((move) => (
+                <PokeMoves move={move} key={move.name} />
+              ))
+              )}
+            </ul>
           </section>
         </main>
       )
@@ -98,7 +109,7 @@ export function PokemonDetail({ pokemonDetail, pokemonMove, pokemonAbility }) {
 function mapStateToProps({ pokeReducer }) {
   return {
     pokemonDetail: pokeReducer.pokemonDetail,
-    pokemonMove: pokeReducer.pokemonMove,
+    pokemonMoves: pokeReducer.pokemonMove,
     pokemonAbility: pokeReducer.pokemonAbility,
   };
 }

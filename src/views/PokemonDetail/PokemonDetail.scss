@@ -13,6 +13,7 @@
 }
 .poke-details{
     display: flex;
+    justify-content: center;
 }
 .poke-details_box{
     display: flex;
@@ -20,24 +21,45 @@
     min-width: 300px;
     margin: 0 20px;
 }
-.poke-stats-container{
-    background-color: #313131;
+.sprite {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border-radius: 5px;
+    justify-content: center;
     height: 280px;
+    border-radius: 5px;
     box-shadow: 9px 7px 22px 4px rgba(0,0,0,0.19);
-    h5 {
-        color: white;
+    img{
+        background-color: #f2f2f2;
+        border-radius: 5px;
         padding: 15px;
-        cursor: default;
+        height: 250px;
+        max-width: 300px;
     }
 }
-
-
+.poke-types-box{
+    display: flex;
+    justify-content: center;
+}
 .poke-ability-box{
     display: flex;
     justify-content: space-around;
     margin-top: 15px;
+}
+.poke-moves-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    h2{
+        font-size: 2em;
+        padding: 20px;
+    }
+}
+.poke-move-list{
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

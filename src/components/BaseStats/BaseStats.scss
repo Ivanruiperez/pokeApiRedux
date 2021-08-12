@@ -1,3 +1,17 @@
+.poke-stats-container{
+    background-color: #313131;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    height: 280px;
+    box-shadow: 9px 7px 22px 4px rgba(0,0,0,0.19);
+    h5 {
+        color: white;
+        padding: 15px;
+        cursor: default;
+    }
+}
 .poke-stat-box{
     display: flex;
     cursor: default;
