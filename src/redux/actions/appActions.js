@@ -13,6 +13,12 @@ export function loadPokemonMove(pokemonMove) {
     pokemonMove,
   };
 }
+export function loadPokemonAbility(pokemonAbility) {
+  return {
+    type: actionTypes.LOAD_POKEMON_ABILITY,
+    pokemonAbility,
+  };
+}
 export function clearStore(clear) {
   return {
     type: actionTypes.CLEAR,
@@ -47,6 +53,19 @@ export function requestPokemonMoves(pokemonMoves) {
       .then((data) => {
         const newArr = data.map((move) => move.data);
         dispatch(loadPokemonMove(newArr));
+      })
+      .catch((error) => dispatch(loadError(error)));
+  };
+}
+export function requestPokemonAbilities(pokemonAbilities) {
+  return (dispatch) => {
+    Promise.all(pokemonAbilities.map(async (ability) => {
+      const allAbilities = await axios.get(ability.ability.url);
+      return allAbilities;
+    }))
+      .then((data) => {
+        const newArr = data.map((ability) => ability.data);
+        dispatch(loadPokemonAbility(newArr));
       })
       .catch((error) => dispatch(loadError(error)));
   };

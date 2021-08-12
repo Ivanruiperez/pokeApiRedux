@@ -1,12 +1,23 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { loadPokemonMove, requestPokemonMoves, requestPokemonList } from '../../redux/actions/appActions';
+import {
+  loadPokemonMove,
+  loadPokemonAbility,
+  requestPokemonMoves,
+  requestPokemonList,
+  requestPokemonAbilities,
+
+} from '../../redux/actions/appActions';
 import Loading from '../../components/Loading/Loading';
+import PokemonAbilities from '../../components/PokemonAbilities/PokemonAbilities';
+import BaseStats from '../../components/BaseStats/BaseStats';
+import PokeTypes from '../../components/PokeTypes/PokeTypes';
 import { firstPokemonIndex, lastPokemonIndex } from '../../assets/constants/index';
 import './PokemonDetail.scss';
 
-export function PokemonDetail({ pokemonDetail, pokemonMove }) {
+export function PokemonDetail({ pokemonDetail, pokemonMove, pokemonAbility }) {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [pokeDetailArr, setPokeDetailArr] = useState(null);
@@ -27,6 +38,7 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
   useEffect(() => {
     if (pokeDetail) {
       dispatch(requestPokemonMoves(pokeDetail.moves));
+      dispatch(requestPokemonAbilities(pokeDetail.abilities));
       setPokeSprite(pokeDetail.sprites.other['official-artwork'].front_default);
       setPokeStats(pokeDetail.stats);
     }
@@ -34,6 +46,11 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
   useEffect(() => {
     if (!pokemonMove) {
       dispatch(loadPokemonMove);
+    }
+  }, [pokeDetail]);
+  useEffect(() => {
+    if (!pokemonAbility) {
+      dispatch(loadPokemonAbility);
     }
   }, [pokeDetail]);
   useEffect(() => {
@@ -55,29 +72,18 @@ export function PokemonDetail({ pokemonDetail, pokemonMove }) {
                   alt="pokeDetail"
                 />
               </div>
-              <div className="poke-types">
-                {pokeDetail.types.map((type) => (
-                  <span>
-                    <p className={type.type.name}>
-                      {type.type.name}
-                    </p>
-                  </span>
-                ))}
-              </div>
+              {pokeDetail.types.map((type) => (
+                <PokeTypes type={type} key={type.type.name} />
+              ))}
             </section>
             <section className="poke-details_box">
               <div className="poke-stats-container">
-                <h5>Base Stats</h5>
-                {pokeStats && (
-                  pokeStats.map((stat) => (
-                    <span className="poke-stat-box">
-                      <p>{stat.stat.name}</p>
-                      <figure className="poke-stat">
-                        <span className="poke-stat-bar" style={{ width: `${stat.base_stat}px` }}>
-                          <div className="poke-stat-bar-animation" />
-                        </span>
-                      </figure>
-                    </span>
+                <BaseStats pokeStats={pokeStats} key="pokeStats" />
+              </div>
+              <div className="poke-ability-box">
+                {pokemonAbility && (
+                  pokemonAbility.map((ability) => (
+                    <PokemonAbilities ability={ability} key={ability.name} />
                   ))
                 )}
               </div>
@@ -93,6 +99,7 @@ function mapStateToProps({ pokeReducer }) {
   return {
     pokemonDetail: pokeReducer.pokemonDetail,
     pokemonMove: pokeReducer.pokemonMove,
+    pokemonAbility: pokeReducer.pokemonAbility,
   };
 }
 

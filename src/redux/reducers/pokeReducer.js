@@ -12,6 +12,9 @@ export default function pokeReducer(state = {}, action) {
     case actionTypes.LOAD_POKEMON_MOVE:
       updatedState = { ...state, pokemonMove: action.pokemonMove };
       break;
+    case actionTypes.LOAD_POKEMON_ABILITY:
+      updatedState = { ...state, pokemonAbility: action.pokemonAbility };
+      break;
     case actionTypes.LOAD_ERROR:
     default:
       updatedState = state;

@@ -1,0 +1,117 @@
+.sprite {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 280px;
+    border-radius: 5px;
+    box-shadow: 9px 7px 22px 4px rgba(0,0,0,0.19);
+    img{
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 15px;
+        height: 250px;
+        max-width: 300px;
+    }
+}
+.poke-types{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    span{
+        width: 100px;
+        height: 30px;
+        margin: 0 10px;
+        p{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            text-transform: capitalize;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            box-shadow: 9px 7px 22px 4px rgba(0,0,0,0.19);
+        }
+    }
+    .fire {
+        background-color: #fd7d23;
+    }
+    .flying {
+        background: linear-gradient(
+          to top,
+          #bdb9b8 0%,
+          #bdb9b8 50%,
+          #3dc6ef 50%,
+          #3dc6ef 100%
+        );
+    }
+    .normal{
+        background-color: #ffffff;
+    }
+    .fighting {
+        background-color: #d56723;
+    }
+    .poison {
+        background-color: #b97fc9;
+        color: white;
+    }
+    .ground {
+        background: linear-gradient(
+          to top,
+          #aa9841 0%,
+          #aa9841 50%,
+          #f7dd3f 50%,
+          #f7dd3f 100%
+        );
+    }
+    .rock {
+        background-color: #a28c20;
+        color: white;
+    }
+    .bug {
+        background-color: #729f3f;
+        color: white;
+    }
+    .ghost {
+        background-color: #7b62a3;
+        color: white;
+    }
+    .steel {
+        background-color: #9eb7b8;
+    }
+    .water {
+        background-color: #4592c4;
+        color: white;
+    }
+    .grass {
+        background-color: #9bcb50;
+    }
+    .electric {
+        background-color: #eed434;
+    }
+    .psychic{
+        background-color: #f365b9;
+        color: white;
+    }
+    .ice {
+        background-color: #51c3e7;
+    }
+    .dragon {
+        background: linear-gradient(
+          to top,
+          #f16d56 0%,
+          #f16d56 50%,
+          #53a4cf 50%,
+          #53a4cf 100%
+        );
+        color: white;
+    }
+    .dark {
+        background-color: #707070;
+        color: white;
+    }
+    .fairy {
+        background-color: #fdb8e9;
+    }
+}
