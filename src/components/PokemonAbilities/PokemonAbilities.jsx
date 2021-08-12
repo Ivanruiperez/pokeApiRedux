@@ -3,7 +3,13 @@ import './PokemonAbilities.scss';
 
 export default function PokemonAbilities({ ability }) {
   const [openTooltip, setOpenTooltip] = useState(false);
-
+  let tooltip;
+  ability.flavor_text_entries.map((abDescription) => {
+    if (abDescription.language.name === 'en') {
+      tooltip = abDescription.flavor_text;
+    }
+    return tooltip;
+  });
   return (
     <span
       className="poke-ability-item"
@@ -27,7 +33,7 @@ export default function PokemonAbilities({ ability }) {
       {openTooltip && (
       <span className="poke-ability-tooltip" key={ability.id}>
         <p>
-          {ability.flavor_text_entries[0].flavor_text}
+          {tooltip}
         </p>
       </span>
       )}
