@@ -11,6 +11,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    .listItem:hover{
+        justify-content:center
+    }
+    
 }
 
 .pokemon-list-box{
