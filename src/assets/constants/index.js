@@ -76,11 +76,4 @@ export const options = [
 export const chooseGen = 'Choose generation';
 export const dropDownActivate = 'dropDownActivate';
 export const dropDownDisabled = 'dropDownDisabled';
-export const initials = {
-  'generation 1': {
-    bulbasaur: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/1.png',
-    charmander: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/4.png',
-    squirtle: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/7.png',
-  },
-
-};
+export const notFoungImg = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png';

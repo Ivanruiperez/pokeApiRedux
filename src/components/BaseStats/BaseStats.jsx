@@ -4,7 +4,7 @@ import './BaseStats.scss';
 export default function BaseStats({ pokeStats }) {
   return (
     <div className="poke-stats-container">
-      <h5>Base Stats</h5>
+      <h5>Base Stats and Abilities</h5>
       {pokeStats && (
         pokeStats.map((stat) => (
           <span className="poke-stat-box" key={stat.stat.name}>

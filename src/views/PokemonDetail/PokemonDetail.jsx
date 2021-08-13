@@ -18,7 +18,7 @@ import PokeMoves from '../../components/PokeMoves/PokeMoves';
 import { firstPokemonIndex, lastPokemonIndex } from '../../assets/constants/index';
 import './PokemonDetail.scss';
 
-export function PokemonDetail({ pokemonDetail, pokemonMoves, pokemonAbility }) {
+function PokemonDetail({ pokemonDetail, pokemonMoves, pokemonAbility }) {
   const dispatch = useDispatch();
   const { id } = useParams();
   const [pokeDetailArr, setPokeDetailArr] = useState(null);
