@@ -1,0 +1,80 @@
+.modal{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    cursor: default;
+    h2{
+        text-transform: capitalize;
+        margin: 10px;
+    }
+    .modal-box{
+        width: 500px;
+        height: 400px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .modal-box-moves{
+            height: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 40px;
+            .modal-box-moves-stat{
+                display: flex;
+                padding: 10px;
+                .modal-moves-stat-name{
+                    display: flex;
+                    flex: 1;
+                    align-items: center;
+                }
+                .move-stat{
+                    display: flex;
+                    flex: 2;
+                    p{
+                        padding: 6px;
+                        border-radius: 3px;
+                    }
+                    .type-shadow{
+                        box-shadow: 9px 7px 22px 4px rgba(0,0,0,0.19);
+                    }
+                }
+            }
+            .modal-box-moves-stat-description{
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                flex: 1;
+                .move-effects{
+                    padding: 5px;
+                }
+                .move-effects-description{
+                    display: flex;
+                    flex: 2;
+                    padding-left: 32px
+                }
+            }
+            
+        }
+    }
+    .modal-close{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        margin-top: 20px;
+        width: 200px;
+        height: 30px;
+        color: white;
+        border-radius: 3px;
+        background-color: rgb(84, 181, 99);
+    }
+}
