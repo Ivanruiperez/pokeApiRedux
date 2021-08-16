@@ -1,0 +1,29 @@
+.filter-box{
+    align-items: center;
+    z-index: 1;
+    .filter-input{
+        height: 28px;
+        width: 175px;
+        border: 1px solid #616161;
+        border-radius: 2px;
+        outline: none;
+        font-size: 15px;
+    }
+    .filter-button{
+        margin-left: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ee6b2f;
+        width: 31px;
+        height: 31px;
+        border-radius: 2px;
+        cursor: pointer;
+        img{
+            width: 45%;
+        }
+    }
+    .filter-button:hover{
+        background-color: #da471b;
+    }
+}

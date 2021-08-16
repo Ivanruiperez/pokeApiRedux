@@ -1,6 +1,6 @@
 import actionTypes from '../actions/actionTypes';
 
-export default function pokeReducer(state = {}, action) {
+export default function pokeReducer(state = { searchString: '' }, action) {
   let updatedState;
   switch (action.type) {
     case actionTypes.CLEAR:
@@ -14,6 +14,9 @@ export default function pokeReducer(state = {}, action) {
       break;
     case actionTypes.LOAD_POKEMON_ABILITY:
       updatedState = { ...state, pokemonAbility: action.pokemonAbility };
+      break;
+    case actionTypes.UPDATE_SEARCH_STRING:
+      updatedState = { ...state, searchString: action.searchString };
       break;
     case actionTypes.LOAD_ERROR:
     default:

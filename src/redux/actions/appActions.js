@@ -19,6 +19,12 @@ export function loadPokemonAbility(pokemonAbility) {
     pokemonAbility,
   };
 }
+export function updateSearchString(searchString) {
+  return {
+    type: actionTypes.UPDATE_SEARCH_STRING,
+    searchString,
+  };
+}
 export function clearStore(clear) {
   return {
     type: actionTypes.CLEAR,

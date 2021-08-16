@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { clearStore, requestPokemonList } from '../../redux/actions/appActions';
 import './PokemonList.scss';
@@ -7,7 +7,19 @@ import PokemonListItem from '../../components/PokemonListItem/pokemonListItem';
 import Loading from '../../components/Loading/Loading';
 import { firstPokemonIndex, lastPokemonIndex } from '../../assets/constants/index';
 
-function PokemonList({ pokemonDetail }) {
+function PokemonList({ pokemonDetail, searchString }) {
+  const [pokeFilter, setPokeFilter] = useState(null);
+  const template = () => (
+    <ul className="pokemon-list">
+      {searchString !== '' && pokeFilter?.length
+        ? pokeFilter.map((pokemon) => (
+          <PokemonListItem key={pokemon.name} pokemon={pokemon} />
+        ))
+        : pokemonDetail && pokemonDetail.map((pokemon) => (
+          <PokemonListItem key={pokemon.name} pokemon={pokemon} />
+        ))}
+    </ul>
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     if (!pokemonDetail) {
@@ -20,18 +32,16 @@ function PokemonList({ pokemonDetail }) {
   return (
     <>
       <section className="pokemon-list-container">
-        <Header />
+        <Header pokemonDetail={pokemonDetail} setPokeFilter={setPokeFilter} />
         {!pokemonDetail
           ? (
             <Loading />
           )
           : (
             <section className="pokemon-list-box">
-              <ul className="pokemon-list">
-                {pokemonDetail && pokemonDetail.map((pokemon) => (
-                  <PokemonListItem key={pokemon.name} pokemon={pokemon} />
-                ))}
-              </ul>
+              {searchString !== '' && !pokeFilter.length
+                ? <p>No coincidencias</p>
+                : template()}
             </section>
           )}
       </section>
@@ -42,6 +52,7 @@ function PokemonList({ pokemonDetail }) {
 function mapStateToProps({ pokeReducer }) {
   return {
     pokemonDetail: pokeReducer.pokemonDetail,
+    searchString: pokeReducer.searchString,
   };
 }
 
