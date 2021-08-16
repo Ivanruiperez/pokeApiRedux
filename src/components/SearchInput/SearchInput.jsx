@@ -5,30 +5,41 @@ import { updateSearchString } from '../../redux/actions/appActions';
 import findIcon from '../../assets/images/find-icon.png';
 
 export default function SearchInput({ pokemonDetail, setPokeFilter }) {
+  const [searchInput, setSearchInput] = useState(false);
   const [searchPoke, setSearchPoke] = useState([]);
   const dispatch = useDispatch();
-  function hadleSearchClick(item) {
-    dispatch(updateSearchString(item));
+  function hadleSearchChange(item) {
+    setSearchPoke(item);
+    dispatch(updateSearchString(searchPoke));
     setPokeFilter(pokemonDetail?.filter((filterPoke) => filterPoke.name.includes(item)));
   }
 
   return (
     <section className="filter-box">
+      <div className="filter-button">
+        <button
+          type="button"
+          onClick={() => {
+            setSearchInput(!searchInput);
+          }}
+          aria-hidden="true"
+          disabled={!pokemonDetail}
+        >
+          <img src={findIcon} alt={findIcon} />
+        </button>
+      </div>
+      {searchInput
+      && (
       <input
         className="filter-input"
         type="text"
         placeholder="Search Pokemon"
-        onChange={(event) => setSearchPoke(event?.target?.value)}
-      />
-      <div
-        className="filter-button"
-        onClick={() => {
-          hadleSearchClick(searchPoke);
+        onChange={(event) => {
+          hadleSearchChange(event?.target?.value);
         }}
-        aria-hidden="true"
-      >
-        <img src={findIcon} alt={findIcon} />
-      </div>
+      />
+      )}
+
     </section>
   );
 }
