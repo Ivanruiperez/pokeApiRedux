@@ -5,11 +5,12 @@ import './PokemonList.scss';
 import Header from '../../components/Header/Header';
 import PokemonListItem from '../../components/PokemonListItem/pokemonListItem';
 import Loading from '../../components/Loading/Loading';
+import FilterNotFound from '../../components/FilterNotFound/FilterNotFound';
 import { firstPokemonIndex, lastPokemonIndex } from '../../assets/constants/index';
 
 function PokemonList({ pokemonDetail, searchString }) {
   const [pokeFilter, setPokeFilter] = useState(null);
-  const template = () => (
+  const pokeListItemTemplate = () => (
     <ul className="pokemon-list">
       {searchString !== '' && pokeFilter?.length
         ? pokeFilter.map((pokemon) => (
@@ -44,8 +45,8 @@ function PokemonList({ pokemonDetail, searchString }) {
           : (
             <section className="pokemon-list-box">
               {searchString !== '' && !pokeFilter?.length
-                ? <p>No coincidencias</p>
-                : template()}
+                ? <FilterNotFound />
+                : pokeListItemTemplate()}
             </section>
           )}
       </section>
