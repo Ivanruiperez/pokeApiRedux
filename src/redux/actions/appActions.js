@@ -31,6 +31,11 @@ export function clearStore(clear) {
     clear,
   };
 }
+export function clearString() {
+  return {
+    type: actionTypes.CLEAR_STRING,
+  };
+}
 export function loadError(error) {
   return {
     type: actionTypes.LOAD_ERROR,

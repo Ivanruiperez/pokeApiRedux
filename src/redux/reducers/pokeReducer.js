@@ -6,6 +6,9 @@ export default function pokeReducer(state = { searchString: '' }, action) {
     case actionTypes.CLEAR:
       updatedState = { ...state, pokemonDetail: action.clear };
       break;
+    case actionTypes.CLEAR_STRING:
+      updatedState = { ...state, searchString: '' };
+      break;
     case actionTypes.LOAD_POKEMON_DETAIL:
       updatedState = { ...state, pokemonDetail: action.pokemonDetail };
       break;

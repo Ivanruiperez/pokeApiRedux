@@ -7,9 +7,9 @@ import {
 import Arrow from '../../assets/images/arrow.png';
 import './Dropdown.scss';
 
-export default function Dropdown({ actualGen }) {
+export default function Dropdown() {
   const dispatch = useDispatch();
-  const [genSelected, setGenSelected] = useState(actualGen);
+  const [genSelected, setGenSelected] = useState(null);
   const [limit, setLimit] = useState(null);
   const [offset, setOffset] = useState(null);
   const [isOpen, setIsOpen] = useState(false);

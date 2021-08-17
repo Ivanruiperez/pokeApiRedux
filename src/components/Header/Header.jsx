@@ -5,7 +5,7 @@ import SearchInput from '../SearchInput/SearchInput';
 import Dropdown from '../Dropdown/Dropdown';
 import { headerText } from '../../assets/constants/index';
 
-export default function Header({ pokemonDetail, setPokeFilter, actualGen }) {
+export default function Header({ pokemonDetail, setPokeFilter }) {
   return (
     <>
       <section className="header-container">
@@ -14,7 +14,7 @@ export default function Header({ pokemonDetail, setPokeFilter, actualGen }) {
         </div>
         <div className="header-container-box">
           <section>
-            <Dropdown pokemonDetail={pokemonDetail} actualGen={actualGen} />
+            <Dropdown pokemonDetail={pokemonDetail} />
             <p className="header-container-text">
               {headerText}
             </p>

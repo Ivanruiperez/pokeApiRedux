@@ -5,6 +5,7 @@ const actionTypes = {
   LOAD_POKEMON_ABILITY: 'LOAD_POKEMON_ABILITY',
   UPDATE_SEARCH_STRING: 'UPDATE_SEARCH_STRING',
   CLEAR: 'CLEAR',
+  CLEAR_STRING: 'CLEAR_STRING',
 };
 
 export default actionTypes;
