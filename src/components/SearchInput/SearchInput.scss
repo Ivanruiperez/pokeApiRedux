@@ -12,19 +12,31 @@
         width: 100%;
         height: 100%;
     }
+    
     button:disabled{
         width: 100%;
         height: 100%;
         background-color: #616161;
     }
-    .filter-input{
+    .filter-input-box{
+        display: flex;
+        align-items: center;
         height: 30px;
         width: 175px;
+    }
+    .filter-input{
+        height: 100%;
+        width: 100%;
         border: 1px solid #616161;
         border-radius: 3px;
         outline: none;
         font-size: 15px;
-    }
+        animation: openInput 0.5s;
+        @keyframes openInput {
+            0% {width: 0;}
+            100% {width: 100%;}
+        } 
+    }    
     .filter-button{
         display: flex;
         justify-content: center;

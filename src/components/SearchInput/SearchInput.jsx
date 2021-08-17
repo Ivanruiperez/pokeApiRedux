@@ -29,16 +29,18 @@ export default function SearchInput({ pokemonDetail, setPokeFilter }) {
         </button>
       </div>
       {searchInput
-      && (
-      <input
-        className="filter-input"
-        type="text"
-        placeholder="Search Pokemon"
-        onChange={(event) => {
-          hadleSearchChange(event?.target?.value);
-        }}
-      />
-      )}
+        && (
+          <div className="filter-input-box">
+            <input
+              className="filter-input"
+              type="text"
+              placeholder="Search Pokemon"
+              onChange={(event) => {
+                hadleSearchChange(event?.target?.value);
+              }}
+            />
+          </div>
+        )}
 
     </section>
   );
