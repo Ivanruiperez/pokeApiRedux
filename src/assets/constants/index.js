@@ -6,7 +6,7 @@ Myself… I study Pokémon as a profession.`;
 
 export const headerText = 'To see the pokédex of each region, choose a generation of pokemon';
 export const firstPokemonIndex = '0';
-export const lastPokemonIndex = '809';
+export const lastPokemonIndex = '25';
 export const options = [
   {
     value: 'generation 1',

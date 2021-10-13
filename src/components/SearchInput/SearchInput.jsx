@@ -18,6 +18,7 @@ export default function SearchInput({ pokemonDetail, setPokeFilter }) {
     <section className="filter-box">
       <div className="filter-button">
         <button
+          className="filterButton"
           type="button"
           onClick={() => {
             setSearchInput(!searchInput);

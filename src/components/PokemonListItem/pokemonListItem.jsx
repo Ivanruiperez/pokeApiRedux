@@ -45,7 +45,7 @@ function PokemonListItem({ pokemon }) {
               alt="pokeball"
             />
             {!sprite ? (
-              <p>
+              <p className="pokemonName">
                 {pokemon.name}
               </p>
             ) : <img src={pokeSprite} alt="sprite" />}
